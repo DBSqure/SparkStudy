@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "94829aaa2ba3ff11",
+        "id": "dfc608e56607201f",
         "type": "tabs",
         "children": [
           {
-            "id": "5b71534074407c2a",
+            "id": "82927ae63153af8c",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -64,12 +64,24 @@
               "type": "bookmarks",
               "state": {}
             }
+          },
+          {
+            "id": "5b71534074407c2a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Book/1.스파크 살펴보기.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "9f85b7fdfb983dbf",
@@ -147,10 +159,10 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "5b71534074407c2a",
+  "active": "82927ae63153af8c",
   "lastOpenFiles": [
-    "Templates/StudyTemplate.md",
     "Book/1.스파크 살펴보기.md",
+    "Templates/StudyTemplate.md",
     "Book",
     "Welcome.md",
     "New file.md",
