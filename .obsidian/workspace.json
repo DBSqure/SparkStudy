@@ -8,12 +8,24 @@
         "type": "tabs",
         "children": [
           {
-            "id": "82927ae63153af8c",
+            "id": "c32c85fe4300818a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Book/5.데이터 소스.md",
+                "file": "0.운영/모집공고.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "df69648a2c981eb6",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "0.운영/회의록/0515 - 프로젝트 개요.md",
                 "mode": "source",
                 "source": false
               }
@@ -81,7 +93,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "9f85b7fdfb983dbf",
@@ -97,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Book/5.데이터 소스.md",
+                "file": "0.운영/모집공고.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Book/5.데이터 소스.md",
+                "file": "0.운영/모집공고.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Book/5.데이터 소스.md"
+                "file": "0.운영/모집공고.md"
               }
             }
           }
@@ -159,16 +172,21 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "82927ae63153af8c",
+  "active": "c32c85fe4300818a",
   "lastOpenFiles": [
-    "Book/4.Join.md",
+    "0.운영/회의록/0515 - 프로젝트 개요.md",
+    "0.운영/모집공고.md",
+    "Templates/BaseTemplate.md",
+    "0.운영/Untitled.md",
+    "Book/1.스파크 살펴보기.md",
+    "0.운영/회의록",
     "Book/5.데이터 소스.md",
+    "0.운영",
+    "Book/4.Join.md",
     "Book/3.집계 연산.md",
     "Book/2.구조적 API - 2.md",
     "Book/2.구조적 API - 1.md",
-    "Book/1.스파크 살펴보기.md",
     "Book/Untitled.md",
-    "Templates/StudyTemplate.md",
     "Book",
     "Welcome.md",
     "New file.md",
