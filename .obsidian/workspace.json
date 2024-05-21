@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "0.운영/모집공고.md",
+                "file": "0.운영/회의록/0520 회의록.md",
                 "mode": "source",
                 "source": false
               }
@@ -93,8 +93,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "9f85b7fdfb983dbf",
@@ -110,7 +109,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "0.운영/모집공고.md",
+                "file": "0.운영/회의록/0520 회의록.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +126,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "0.운영/모집공고.md",
+                "file": "0.운영/회의록/0520 회의록.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -150,7 +149,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "0.운영/모집공고.md"
+                "file": "0.운영/회의록/0520 회의록.md"
               }
             }
           }
@@ -174,8 +173,9 @@
   },
   "active": "c32c85fe4300818a",
   "lastOpenFiles": [
-    "0.운영/회의록/0515 - 프로젝트 개요.md",
     "0.운영/모집공고.md",
+    "0.운영/회의록/0520 회의록.md",
+    "0.운영/회의록/0515 - 프로젝트 개요.md",
     "Templates/BaseTemplate.md",
     "0.운영/Untitled.md",
     "Book/1.스파크 살펴보기.md",
