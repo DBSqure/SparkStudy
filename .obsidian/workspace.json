@@ -18,8 +18,21 @@
                 "source": false
               }
             }
+          },
+          {
+            "id": "6945755c2b361b7b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Spark study 발표 준비.md",
+                "mode": "source",
+                "source": false
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -97,7 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Airflow.md",
+                "file": "Spark study 발표 준비.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Airflow.md",
+                "file": "Spark study 발표 준비.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +150,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Airflow.md"
+                "file": "Spark study 발표 준비.md"
               }
             }
           }
@@ -159,9 +172,10 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "a77995d7814c6061",
+  "active": "6945755c2b361b7b",
   "lastOpenFiles": [
     "Airflow.md",
+    "Spark study 발표 준비.md",
     "Airflow",
     "0.운영/회의록/0515 - 프로젝트 개요.md",
     "0.운영/회의록/0520 회의록.md",
