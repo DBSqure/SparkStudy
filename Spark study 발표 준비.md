@@ -5,7 +5,7 @@ Spark test code에 대한 고민
 
 
 
-# {{ 제목 작성 }}
+# 데이터 엔지니어링에 맞는 테스트 방법 고민
 
 ## Introduction
 
@@ -16,8 +16,7 @@ Spark 데이터 처리 과정에서 Test code는 필
 1. [Introduction](#introduction)
 2. [Background](#background)
 3. [Main Content](#main-content)
-    1. [Subsection 1](#subsection-1)
-    2. [Subsection 2](#subsection-2)
+    1. 데이터 엔지니어링에 테스트 코드가 필요한가?
 4. [Conclusion](#conclusion)
 5. [References](#references)
 
@@ -28,7 +27,7 @@ Spark 데이터 처리 과정에서 Test code는 필
 일반적인 서비스 개발에서 테스트 코드는 유지/보수/관리 측면에서 매우 중요합니다. 특히 소프트웨어 결함을 찾아내고 수정하는 과정을 통해 지속가능한 코드를 작성하는 데 매우 중요한 역할을 수행합니다. 이러한 상황에서 Spark로 데이터 처리하는 과정에서 테스트 코드에 고민을 했습니다.
 
 
-## Spark에 테스트 코드가 필요한가?
+## 데이터 엔지니어링에 테스트 코드가 필요한가?
 
 ### Test Code?
 
@@ -211,18 +210,75 @@ async def test_account_repository_cannot_get_user_account(session):
 - 특히, 한 번 만든 파이프라인을 문제가 있기 전까지는 다시 보지 않기 때문에, 유지 보수를 위해서 테스트 코드를 작성하는 작업은 필요.
 
 - 다만, 백엔드 개발과는 다른 관점에서 데이터 엔지니어링에서 테스트 코드의 고민이 필요하다!!
-- 백
+- 백엔드에서 개발은 기능 동작과 예외적 사용에 대해 주로 시나리오를 작성한다면, 데이터 엔지니어링은 예외적인 경우보다 데이터 정합성이 중요한 이슈
+- 데이터 엔지니어링에 맞는 테스트 방법에 고민이 필요하지 않을까?
 
 
+### 책에 나와있는 Spark 테스트 코드 원칙
 
-- 일반 백엔드에서는 사용자의 요구로 비즈니스 요구사항이 달라지는 만큼 미래에 발생할 수 있는 변화를 고려해서 기존의 코드를 수정할 일이 빈번하다.
-- 데이터 엔지니어링에서 일반적으로 요구사항에 따라 새로운 파이프라인을 만든 경우가 대부분이지 한 번 만든 데이터 파이프라인을 개선하는 작업이 많지는 않다.(물론, 성능적인 이슈로 개선하는 작업이 있을 수 있음)
+#### 입력 데이터에 대한 유연성
+
+- 비즈니스 요구사항이 변하면 데이터도 변함
+- 따라서 애플리케이션과 파이프라인은 **입력 데이터 중 일부가 변하더라도 유연하게 대처**할 수 있어야함
+
+#### 비즈니스 로직 변경에 대한 유연성
+
+- 입력 데이터뿐만 아니라 파이프라인 내부의 **비즈니스 로직**이 바뀔수도 있음
+- 비즈니스 로직을 테스트해 복잡한 비즈니스 파이프라인이 의도한 대로 동작하는지 확인해야함
+    - 이 유형에서는 스파크가 가진 기능을 테스트하는 '스파크 단위 테스트'를 작성하지 않도록 조심해야함
+    - 예상했던 원형 데이터의 형태가 실제 원형 데이터와 같은지 확인
+
+#### 결과의 유연성과 원자성
+
+- **결과를 의도한 대로 반환**하는지 확인
+- 데이터가 스키마에 맞는 적절한 형태로 반환될 수 있도록 제어해야함
+
+
+### 일반적인 Spark 테스트 코드
+
+```python
+import pytest
+from pyspark.sql import SparkSession
+from pyspark.sql.functions import col
+
+# SparkSession을 설정하는 함수
+@pytest.fixture(scope="session")
+def spark():
+    return SparkSession.builder \
+        .master("local[2]") \
+        .appName("pytest-pyspark-local-testing") \
+        .getOrCreate()
+
+# 데이터 처리 함수를 정의
+def process_data(df):
+    return df.withColumn("new_column", col("value") * 2)
+
+# 테스트 함수
+def test_process_data(spark):
+    # 테스트 데이터 생성
+    input_data = [("Alice", 1), ("Bob", 2), ("Carol", 3)]
+    input_df = spark.createDataFrame(input_data, ["name", "value"])
+
+    # 데이터 처리 함수 호출
+    result_df = process_data(input_df)
+
+    # 예상 결과 생성
+    expected_data = [("Alice", 1, 2), ("Bob", 2, 4), ("Carol", 3, 6)]
+    expected_df = spark.createDataFrame(expected_data, ["name", "value", "new_column"])
+
+    # 결과 비교
+    assert result_df.collect() == expected_df.collect()
+```
+
+
 
 ## Conclusion
 
-<br>
+프로젝트를 진행하며, 여러 데이터 파이프라인을 직접 만들어보며 테스트 코드 작성에 대해 한 번쯤은 고민해보면 좋을 것이라 생각합니다. 특히, 데이터 처리 관점에서 어떤 테스트 코드가 필요하며, 테스트 절차를 팀 차원에서 고민해보고 적용하면 좋을 것이라는 생각에 데이터 엔지니어링에서 테스트 코드의 필요성에 대한 주제를 간단하게 가져왔습니다.
+실제 프로젝트를 진행하면서 우리 팀만의 테스트 문화가 어느정도 만들어지면 공유 하는 시간 만들어 봅시다!!
 
 ## References
+[Spark 완벽 가이드 - 블로그 정리](https://velog.io/@bbkyoo/Spark-%EC%99%84%EB%B2%BD-%EA%B0%80%EC%9D%B4%EB%93%9C-ch16.-%EC%8A%A4%ED%8C%8C%ED%81%AC-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EA%B0%9C%EB%B0%9C%ED%95%98%EA%B8%B0)
+[DataFrame 동일성 테스트 함수를 이용하여 PySpark 테스트 간소화](https://www.databricks.com/kr/blog/simplify-pyspark-testing-dataframe-equality-functions)
 
-<br>
 
