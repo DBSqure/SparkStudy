@@ -11,11 +11,28 @@
             "id": "177dad81bff7a472",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "0630-DE 과제.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "335386deff54f89e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "DataPlatform/Data Layer.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -93,6 +110,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "DataPlatform/Data Layer.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -109,6 +127,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "DataPlatform/Data Layer.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -130,7 +149,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "DataPlatform/Data Layer.md"
+              }
             }
           }
         ]
@@ -151,8 +172,11 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "177dad81bff7a472",
+  "active": "335386deff54f89e",
   "lastOpenFiles": [
+    "0630-DE 과제.md",
+    "DataPlatform/Data Layer.md",
+    "DataPlatform",
     "Airflow.md",
     "Spark study 발표 준비.md",
     "Airflow",
